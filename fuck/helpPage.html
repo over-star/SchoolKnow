@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+		<link rel="stylesheet" href="css/mui.min.css">
+		<script src="js/mui.min.js"></script>
+		<script src="js/app.js"></script>
+   </head>
+   
+	<body>
+<header class="mui-bar mui-bar-nav">
+	<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+	<h1 class="mui-title">求助前辈</h1>
+</header>
+				
+				<div id="pullrefresh" class="mui-content mui-scroll-wrapper">
+					<div class="mui-scroll">
+					<ul id="ok" class="mui-table-view mui-table-view-chevron" >
+		
+					</ul>	
+					</div>
+				</div>
+	</body>
+</html>
+<script>
+var helptitle = new Array("求助啊","帮帮忙","我来捣乱啦","学长在哪里？","成大好美丽？","我是若风","dade，好烦","成大烦劳","问题多多","天天一问","谁来帮帮我啊","我是来自计算机的新生，求助","天下学子是一家","☎☎☎","℡求学校电话号码","♠♥♦♣","↙↓↘迷路之学校");
+var helpcontent = new Array("在哪里交钱啊？学弟我急死啦啦","宿舍怎么走啊？怎么分配宿舍啊？","怎么学习新东西，有什么要注意的呢","大一来该不该买电脑呢？","大一耍朋友，怎么认识女生呢？","学校体育场在哪里？怎么去啊？","怎么联系班主任啊？要死了","◎我们学校到底好不好啊？好不好就业啊？◎","▁▂▃▄▅▆▉▇▆▅▄▃▂▁","我很想很想让一个学姐带我去寝室，嘿嘿！！！");
+			mui.init({
+				swipeBack: false,
+				 pullRefresh : {
+    container:"#pullrefresh",//下拉刷新容器标识，querySelector能定位的css选择器均可，比如：id、.class等
+    down : {
+      contentdown : "下拉刷新中。。。",//可选，在下拉可刷新状态时，下拉刷新控件上显示的标题内容
+      contentover : "释放加载数据",//可选，在释放可刷新状态时，下拉刷新控件上显示的标题内容
+      contentrefresh : "正在刷新。。。",//可选，正在刷新状态时，下拉刷新控件上显示的标题内容
+      callback :pullfreshdown //必选，刷新函数，根据具体业务来编写，比如通过ajax从服务器获取新数据；
+    },
+    up : {
+      contentrefresh : "正在加载。。。",//可选，正在加载状态时，上拉加载控件上显示的标题内容
+      contentnomore:'没有了。。。',//可选，请求完毕若没有更多数据时显示的提醒内容；
+      callback :pullfreshup //必选，刷新函数，根据具体业务来编写，比如通过ajax从服务器获取新数据；
+    }
+                              }
+			});
+								
+//下拉刷新部分		
+	var count = 0;
+	function pullfreshdown() {
+     //业务逻辑代码，比如通过ajax从服务器获取新数据；
+    setTimeout(function() {
+//					var table = document.body.querySelector('.mui-table-view');
+					var table=document.getElementById('ok');
+//					var cells=mui('#DownAndUpList .mui-table-view-cell');
+					for (var i = 0; i < 10; i++) {
+						var li = document.createElement('li');
+						li.className = 'mui-table-view-cell mui-media';
+						var n=Math.floor(Math.random()*17);
+						var m=Math.floor(Math.random()*10);
+						li.innerHTML = '<a href="#"><img class="mui-media-object mui-pull-left"src="images/headPortrait/'+Math.floor(Math.random()*14+1)+'.jpg"><div class="mui-media-body">'+helptitle[n]+'<p class="mui-ellipsis">'+ helpcontent[m]+'</p></div></a>';
+						//下拉刷新，新纪录插到最前面；
+						table.insertBefore(li, table.firstChild);
+					}
+					mui('#pullrefresh').pullRefresh().endPulldownToRefresh(); //refresh completed
+				}, 1500);
+     //注意，加载完新数据后，必须执行如下代码，注意：若为ajax请求，则需将如下代码放置在处理完ajax响应数据之后
+    // mui('#pullrefreshContainer').pullRefresh().endPulldownToRefresh();
+}		
+	function pullfreshup() {
+     //业务逻辑代码，比如通过ajax从服务器获取新数据；
+    setTimeout(function() {
+					mui('#pullrefresh').pullRefresh().endPullupToRefresh((++count > 2)); //参数为true代表没有更多数据了。
+				//var table = document.body.querySelector('.mui-table-view');
+					var table=document.getElementById('ok');
+					for (var i = 0; i < 10; i++) {
+						var li = document.createElement('li');
+						li.className = 'mui-table-view-cell mui-media';
+						var n=Math.floor(Math.random()*17);
+						var m=Math.floor(Math.random()*10);
+						li.innerHTML = '<a href="#"><img class="mui-media-object mui-pull-left"src="images/headPortrait/'+Math.floor(Math.random()*14+1)+'.jpg"><div class="mui-media-body">'+helptitle[n]+'<p class="mui-ellipsis">'+helpcontent[m]+' </p></div></a>';
+						table.appendChild(li);
+					}
+				}, 1500);
+     //注意，加载完新数据后，必须执行如下代码，true表示没有更多数据了，两个注意事项：
+     //1、若为ajax请求，则需将如下代码放置在处理完ajax响应数据之后
+     //2、注意this的作用域，若存在匿名函数，需将this复制后使用，参考hello mui中的代码示例；
+     //this.endPullupToRefresh(true|false);
+}
+	if (mui.os.plus) {
+				mui.plusReady(function() {
+					setTimeout(function() {
+						mui('#pullrefresh').pullRefresh().pullupLoading();
+					}, 1000);
+				});
+			} else {
+				mui.ready(function() {
+					mui('#pullrefresh').pullRefresh().pullupLoading();
+				});
+			}
+	 document.body.querySelector('.mui-icon-chat').addEventListener('tap', function() {
+				mui('.mui-popover').popover('toggle');
+			});
+		
+		
+	document.getElementById('toHome').addEventListener('tap', function() {
+  //打开关于页面
+  pullfreshup();
+  mui.openWindow({
+    url:"index.html", 
+    id:'info2',
+  show:{
+      autoShow:true,//页面loaded事件发生后自动显示，默认为true
+      aniShow:"slide-in-left",//页面显示动画，默认为”slide-in-right“；
+      duration:500//页面动画持续时间，Android平台默认100毫秒，iOS平台默认200毫秒；
+    }
+  })
+});
+		
+		</script>

@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="css/mui.min.css">
+		<script src="js/mui.min.js"></script>
+		<script src="js/app.js"></script>
+		<style>
+			html,
+			body {
+				background-color: #EFEFF4;
+			}
+			p {
+				text-indent: 22px;
+			}
+			span.mui-icon {
+				font-size: 14px;
+				color: #007aff;
+				margin-left: -15px;
+				padding-right: 10px; 
+			}
+			.mui-off-canvas-left{
+				color:#00ff00;/*侧滑栏字体颜色*/
+			}
+			.title{/*所有标题的样式*/
+			  	margin: 35px 50px 10px;/*上外为35px，左右为50px，下外边距为10px*/
+			  	font-size: x-large;
+			  }
+		   #popover {
+				position: fixed;
+				top: 46px;
+				right: 6px;
+			}
+			.mui-popover {
+				height: 180px;
+				width: 180px;
+			}
+			.mui-content {
+				padding: 10px;
+			}
+			 #popover .mui-popover-arrow {
+				left: auto;
+				right: 6px;
+			}
+		</style>
+	</head>
+	
+	
+
+
+
+
+	<body>
+		<div id="popover" class="mui-popover" ><!--单出菜单-->
+          <div class="mui-popover-arrow"></div><!--弹出校三角形-->
+                     <ul class="mui-table-view">
+						<li class="mui-table-view-cell"><a href="#">更新版本</a>
+						</li>
+						<li class="mui-table-view-cell"><a href="#">举报我们</a>
+						</li>
+						<li class="mui-table-view-cell"><a href="#">联系我们</a>
+						</li>
+						<li class="mui-table-view-cell"><a href="#">关于我们</a>
+						</li>
+                    </ul>						
+        </div>
+		<div id="offCanvasWrapper" class="mui-off-canvas-wrap mui-draggable">
+			
+			<aside id="offCanvasSide" class="mui-off-canvas-left" ><!--侧滑菜单部分-->
+				<div id="offCanvasSideScroll" class="mui-scroll-wrapper" >
+					<div class="mui-scroll">
+						<div class="title">校懂</div>
+			    <ul style="list-style:none；">
+  <li class="mui-table-view-cell">
+    <a id="school" class="mui-navigate-right"> 学校介绍</a>
+  </li>
+  <li  id="Registration" class="mui-table-view-cell">
+    <a class="mui-navigate-right">新生报到</a>
+  </li>
+  <li  id="shopping" class="mui-table-view-cell">
+    <a class="mui-navigate-right">购物指南</a>
+  </li> 
+ 
+  <li id="find" class="mui-table-view-cell">
+    <a class="mui-navigate-right">发现美食</a>
+  </li>    
+  <li  id="noname" class="mui-table-view-cell">
+    <a class="mui-navigate-right">匿名表白</a>
+  </li>  
+  <li class="mui-table-view-cell">
+    <a id="help" class="mui-navigate-right">求助前辈</a>
+  </li>
+    <li  id="stay"class="mui-table-view-cell">
+    <a class="mui-navigate-right">个人中心</a>
+  </li>   
+			   </ul>
+					
+					</div>
+				</div>
+			</aside>
+		
+			<div class="mui-inner-wrap"><!--主界面部分-->
+				<header class="mui-bar mui-bar-nav">
+					<a href="#offCanvasSide" class="mui-icon mui-action-menu mui-icon-bars mui-pull-left"></a>		
+					<a class="mui-icon mui-icon-info mui-pull-right" href="#popover"></a>
+					<h1 class="mui-title">校懂，你懂的</h1>
+				</header>
+
+				<div id="maincontent" class="mui-content mui-scroll-wrapper">
+	<div class="mui-scroll">
+		<div vid="segmentedControl"class="mui-segmented-control">
+		<a class="mui-control-item mui-active"href="#schoolPicture">
+			校园美图
+		</a><a class="mui-control-item"href="#schoolSister">
+			学姐风采
+		</a><a class="mui-control-item"href="#schoolClub">
+			社团介绍
+		</a>
+		</div>
+		<div class="mui-content-padded">
+	<div id="schoolPicture"class="mui-control-content mui-active">
+		<div class="mui-content">
+    <div class="mui-slider">
+        <div class="mui-slider-group mui-slider-loop">
+        	<!-- 额外增加的一个节点(循环轮播：第一个节点是最后一个图文表格) -->
+            <div class="mui-slider-item">
+                <ul class="mui-table-view mui-grid-view">
+                    <li class="mui-table-view-cell mui-media mui-col-xs-6"><a href="#"><img class="mui-media-object" src="images/school/2.jpg">
+                            <div class="mui-media-body">湖边一角</div></a></li>
+                    <li class="mui-table-view-cell mui-media mui-col-xs-6"><a href="#"><img class="mui-media-object" src="images/school/3.jpg">
+                            <div class="mui-media-body">路边一角</div></a></li>
+                </ul>
+                <ul class="mui-table-view mui-grid-view">
+                    <li class="mui-table-view-cell mui-media mui-col-xs-6"><a href="#"><img class="mui-media-object" src="images/school/5.jpg">
+                            <div class="mui-media-body">嘤鸣湖畔</div></a></li>
+                    <li class="mui-table-view-cell mui-media mui-col-xs-6"><a href="#"><img class="mui-media-object" src="images/school/8.jpg">
+                            <div class="mui-media-body">湖边闲情</div></a></li>
+                </ul>
+            </div>
+                      <div class="mui-slider-item mui-slider-item-duplicate">
+                <ul class="mui-table-view mui-grid-view">
+                    <li class="mui-table-view-cell mui-media mui-col-xs-6"><a href="#"><img class="mui-media-object" src="images/school/1.jpg">
+                            <div class="mui-media-body">寻知桥</div></a></li>
+                    <li class="mui-table-view-cell mui-media mui-col-xs-6"><a href="#"><img class="mui-media-object" src="images/school/4.jpg">
+                            <div class="mui-media-body">学校校门</div></a></li>
+                </ul>
+                <ul class="mui-table-view mui-grid-view">
+                    <li class="mui-table-view-cell mui-media mui-col-xs-6"><a href="#"><img class="mui-media-object" src="images/school/6.jpg">
+                            <div class="mui-media-body">游泳池</div></a></li>
+                    <li class="mui-table-view-cell mui-media mui-col-xs-6"><a href="#"><img class="mui-media-object" src="images/school/7.jpg">
+                            <div class="mui-media-body">林间小道</div></a></li>
+                </ul>
+            </div>
+            <div class="mui-slider-item">
+                <ul class="mui-table-view mui-grid-view">
+                    <li class="mui-table-view-cell mui-media mui-col-xs-6"><a href="#"><img class="mui-media-object" src="images/school/2.jpg">
+                            <div class="mui-media-body">湖边一角</div></a></li>
+                    <li class="mui-table-view-cell mui-media mui-col-xs-6"><a href="#"><img class="mui-media-object" src="images/school/3.jpg">
+                            <div class="mui-media-body">路边一角</div></a></li>
+                </ul>
+                <ul class="mui-table-view mui-grid-view">
+                    <li class="mui-table-view-cell mui-media mui-col-xs-6"><a href="#"><img class="mui-media-object" src="images/school/5.jpg">
+                            <div class="mui-media-body">嘤鸣湖畔</div></a></li>
+                    <li class="mui-table-view-cell mui-media mui-col-xs-6"><a href="#"><img class="mui-media-object" src="images/school/8.jpg">
+                            <div class="mui-media-body">湖边闲情</div></a></li>
+                </ul>
+            </div>
+                <!--额外增加的一个节点(循环轮播：最后一个节点是第一个图文表格)--> 
+            <div class="mui-slider-item mui-slider-item-duplicate">
+                <ul class="mui-table-view mui-grid-view">
+                    <li class="mui-table-view-cell mui-media mui-col-xs-6"><a href="#"><img class="mui-media-object" src="images/school/1.jpg">
+                            <div class="mui-media-body">寻知桥</div></a></li>
+                    <li class="mui-table-view-cell mui-media mui-col-xs-6"><a href="#"><img class="mui-media-object" src="images/school/4.jpg">
+                            <div class="mui-media-body">学校校门</div></a></li>
+                </ul>
+                <ul class="mui-table-view mui-grid-view">
+                    <li class="mui-table-view-cell mui-media mui-col-xs-6"><a href="#"><img class="mui-media-object" src="images/school/6.jpg">
+                            <div class="mui-media-body">游泳池</div></a></li>
+                    <li class="mui-table-view-cell mui-media mui-col-xs-6"><a href="#"><img class="mui-media-object" src="images/school/7.jpg">
+                            <div class="mui-media-body">林间小道</div></a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="mui-slider-indicator" style="position: static;background-color: #fff;">
+            <span class="mui-action mui-action-previous mui-icon mui-icon-back"></span>
+            <div class="mui-number">
+                <span>1</span> / 2
+            </div>
+            <span class="mui-action mui-action-next mui-icon mui-icon-forward"></span>
+        </div>
+    </div>
+</div>
+			</div>
+	<div id="schoolSister" class="mui-control-content">
+			<ul class="mui-table-view" > 
+				<li class="mui-table-view-cell">
+				<a href="#" ><img src="images/beautifulGirl/1.jpg"  width="100%"></a>
+			</li><li class="mui-table-view-cell">
+				<a href="#"><img src="images/beautifulGirl/2.jpg" width="100%"></a>
+			</li><li class="mui-table-view-cell">
+			<a href="#"><img src="images/beautifulGirl/3.jpg" width="100%"></a>
+			</li><li class="mui-table-view-cell">
+					<a href="#"><img src="images/beautifulGirl/4.jpg" width="100%"></a>
+			</li><li class="mui-table-view-cell">
+		<a href="#"><img src="images/beautifulGirl/5.jpg" width="100%"></a>
+			</li><li class="mui-table-view-cell">
+				<a href="#"><img src="images/beautifulGirl/6.jpg" width="100%"></a>
+			</li><li class="mui-table-view-cell">
+				<a href="#"><img src="images/beautifulGirl/8.jpg" width="100%"></a>
+			</li></ul></div>
+			<div id="schoolClub"class="mui-control-content">
+			<ul class="mui-table-view">
+			<li class="mui-table-view-cell">
+				【书友会】协会成立于2011年10月17日，并在2011年10月进行首次招新。协会秉承“以书会友”的理念，旨在为广大的成大学子提供学习和交友的平台。
+			</li>
+			<li class="mui-table-view-cell">
+				【蓝球协会】成都大学篮球协会成立于2002年，是一个面向全校学生的社会性体育类团体。篮协主要通过开展各种形势的篮球比赛，为校篮球队选拔与输送人才，不定期的举行会员活动来锻炼和培养广大同学的篮球水平。
+			</li>
+			<li class="mui-table-view-cell">
+				【辩论协会】成都大学学生辩论协会是在校党委领导，校团委指导和管理，校辩论指导团老师中心指导下，由热衷于辩论知识，精通辩论技巧，致力于大学生思维与口才以及综合素质的提高和发展的大学生组成的学生团体。
+			</li>			
+			<li class="mui-table-view-cell">
+				【RV街舞协会】成都大学RV街舞协会，是成都大学唯一的街舞协会。前身为成都大学体操舞蹈社团，2008年首次以RV命名。是很年轻的一个社团。社团以快乐舞蹈为宗旨，至成立以来社团活动办得多姿多彩，同时积极参加校内外活动，勇敢前进着。就是这样一群热爱街舞，热爱hip hop文化的年轻人带着自己的激情与执着为RV街舞社的明天持续努力着。
+			</li>			
+			<li class="mui-table-view-cell">
+				【花艺协会】花艺协会成立于2009年，挂靠于文学与新闻传播学院，现有会员100余人，花协一年，我们成为了四星级协会，我们不断地创新，不断的改进，现在拥有多种纸花丝网花的制作方式，正积极的开展包花、艺术插花等课程普及有关花艺等方面的知识，陶冶审美情趣，提高艺术修养，热爱生活，崇尚生活！
+			</li>			
+			<li class="mui-table-view-cell">
+				【电子商务协会】成都大学电子商务协会是由张超、唐章伟、严小飞等热衷于电子商务的同学提出申请，于2009年9月正式成立。协会现在有活动部、编辑部、财务部、网络开发部、创业就业部五个部门。协会的文化是感恩与教育。
+			</li>			
+			<li class="mui-table-view-cell">
+				【美术协会】美术协会协会成立于2003年，是经校团委批准，以美术学院为依仗的学生社团。以 “与美同行，与协同心”为口号，促进我校良好的人际氛围，丰富学生课余生活。迄今在成都大学已有七年的立足史。
+			</li>
+			</ul>
+			</div>
+		</div>
+			<h5 class="mui-content-padded">over</h5>
+			
+					</div>
+				</div>
+		   </div>
+		   
+		</div>
+			</body>
+			
+			
+			
+				
+		<script>
+			mui.init({
+				swipeBack: false,
+			});
+				
+//弹出框部分
+	mui('body').on('shown', '.mui-popover', function(e) {
+				//console.log('shown', e.detail.id);//detail为当前popover元素
+			});
+	mui('body').on('hidden', '.mui-popover', function(e) {
+				//console.log('hidden', e.detail.id);//detail为当前popover元素
+			});	
+//侧滑栏部分
+			//侧滑容器父节点
+			var offCanvasWrapper = mui('#offCanvasWrapper');
+			//主界面容器
+			var offCanvasInner = offCanvasWrapper[0].querySelector('.mui-inner-wrap');
+			//菜单容器
+			var offCanvasSide = document.getElementById("offCanvasSide");
+			//移动效果是否为整体移动
+			
+			offCanvasInner.insertBefore(offCanvasSide, offCanvasInner.firstElementChild);
+		//offCanvasWrapper.offCanvas().refresh();
+		
+			//主界面和侧滑菜单界面均支持区域滚动；
+			mui('#offCanvasSideScroll').scroll();
+			mui('#maincontent').scroll();
+			 //实现ios平台原生侧滑关闭页面；
+//			if (mui.os.plus && mui.os.ios) {
+//				mui.plusReady(function() { //5+ iOS暂时无法屏蔽popGesture时传递touch事件，故该demo直接屏蔽popGesture功能
+//					plus.webview.currentWebview().setStyle({
+//						'popGesture': 'none'
+//					});
+//				});
+//			}
+
+//打开求助页面
+	document.getElementById('help').addEventListener('tap', function() {
+offCanvasWrapper.offCanvas('close');//关闭侧边栏
+  mui.openWindow({
+    url:"helpPage.html", 
+    id:'info',
+  show:{
+      autoShow:true,//页面loaded事件发生后自动显示，默认为true
+      aniShow:"slide-in-left",//页面显示动画，默认为”slide-in-right“；
+      duration:500//页面动画持续时间，Android平台默认100毫秒，iOS平台默认200毫秒；
+    }
+  })
+});
+//学校介绍
+document.getElementById('school').addEventListener('tap', function() {
+offCanvasWrapper.offCanvas('close');//关闭侧边栏
+  mui.openWindow({
+    url:"school.html", 
+    id:'info',
+  show:{
+      autoShow:true,//页面loaded事件发生后自动显示，默认为true
+      aniShow:"slide-in-left",//页面显示动画，默认为”slide-in-right“；
+      duration:500//页面动画持续时间，Android平台默认100毫秒，iOS平台默认200毫秒；
+    }
+  })
+});
+//新生报到
+document.getElementById('Registration').addEventListener('tap', function() {
+offCanvasWrapper.offCanvas('close');//关闭侧边栏
+  mui.openWindow({
+    url:"Registration.html", 
+    id:'info',
+  show:{
+      autoShow:true,//页面loaded事件发生后自动显示，默认为true
+      aniShow:"slide-in-left",//页面显示动画，默认为”slide-in-right“；
+      duration:500//页面动画持续时间，Android平台默认100毫秒，iOS平台默认200毫秒；
+    }
+  })
+});
+//购物指南
+document.getElementById('shopping').addEventListener('tap', function() {
+offCanvasWrapper.offCanvas('close');//关闭侧边栏
+  mui.openWindow({
+    url:"undone.html", 
+    id:'info',
+  show:{
+      autoShow:true,//页面loaded事件发生后自动显示，默认为true
+      aniShow:"slide-in-left",//页面显示动画，默认为”slide-in-right“；
+      duration:500//页面动画持续时间，Android平台默认100毫秒，iOS平台默认200毫秒；
+    }
+  })
+});
+//宾馆住宿
+document.getElementById('stay').addEventListener('tap', function() {
+offCanvasWrapper.offCanvas('close');//关闭侧边栏
+  mui.openWindow({
+    url:"personal.html", 
+    id:'info',
+  show:{
+      autoShow:true,//页面loaded事件发生后自动显示，默认为true
+      aniShow:"slide-in-left",//页面显示动画，默认为”slide-in-right“；
+      duration:500//页面动画持续时间，Android平台默认100毫秒，iOS平台默认200毫秒；
+    }
+  })
+
+});  
+//发现美食
+document.getElementById('find').addEventListener('tap', function() {
+offCanvasWrapper.offCanvas('close');//关闭侧边栏
+  mui.openWindow({
+    url:"undone.html", 
+    id:'info',
+  show:{
+      autoShow:true,//页面loaded事件发生后自动显示，默认为true
+      aniShow:"slide-in-left",//页面显示动画，默认为”slide-in-right“；
+      duration:500//页面动画持续时间，Android平台默认100毫秒，iOS平台默认200毫秒；
+    }
+  })
+});
+//匿名表白
+document.getElementById('noname').addEventListener('tap', function() {
+offCanvasWrapper.offCanvas('close');//关闭侧边栏
+  mui.openWindow({
+    url:"undone.html", 
+    id:'info',
+  show:{
+      autoShow:true,//页面loaded事件发生后自动显示，默认为true
+      aniShow:"slide-in-left",//页面显示动画，默认为”slide-in-right“；
+      duration:500//页面动画持续时间，Android平台默认100毫秒，iOS平台默认200毫秒；
+    }
+  })
+});
+
+			
+			
+			
+	
+
+
+			
+			
+			
+		</script>
+
+</html>
